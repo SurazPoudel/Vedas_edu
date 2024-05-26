@@ -17,30 +17,30 @@
                         <form id="signupForm" class="needs-validation" novalidate>
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required pattern="[A-Za-z]+">
                                 <div class="invalid-feedback">
-                                    Please provide a first name.
+                                    Please provide a valid first name without numbers.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required pattern="[A-Za-z]+">
                                 <div class="invalid-feedback">
-                                    Please provide a last name.
+                                    Please provide a valid last name without numbers.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="class" class="form-label">Class</label>
-                                <input type="text" class="form-control" id="class" placeholder="Class" required>
+                                <input type="text" class="form-control" id="class" placeholder="Class" required pattern="^(1-9|nursery|lkg|ukg|others)$">
                                 <div class="invalid-feedback">
-                                    Please provide a class.
+                                    Please provide a valid class between 1-9, nursery, lkg, ukg, or others.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="contactNo" class="form-label">Contact No.</label>
                                 <input type="tel" class="form-control" id="contactNo" placeholder="Contact No." required>
                                 <div class="invalid-feedback">
-                                    Please provide a valid contact number.
+                                    Please provide a valid contact number with country code.
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                             <button class="btn btn-primary w-100" type="submit">Sign Up</button>
+                            <a href="index.html" class="btn btn-success w-100 mt-2" type="button">Back</a>
                         </form>
                     </div>
                 </div>

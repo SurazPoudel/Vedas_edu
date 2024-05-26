@@ -107,22 +107,22 @@
     
 })(jQuery);
 
-// signup
-(function () {
-    'use strict';
-    window.addEventListener('load', function () {
-        var forms = document.getElementsByClassName('needs-validation');
-        Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-})();
+// // signup
+// (function () {
+//     'use strict';
+//     window.addEventListener('load', function () {
+//         var forms = document.getElementsByClassName('needs-validation');
+//         Array.prototype.filter.call(forms, function (form) {
+//             form.addEventListener('submit', function (event) {
+//                 if (form.checkValidity() === false) {
+//                     event.preventDefault();
+//                     event.stopPropagation();
+//                 }
+//                 form.classList.add('was-validated');
+//             }, false);
+//         });
+//     }, false);
+// })();
 // login
 (function () {
     'use strict';
@@ -139,3 +139,36 @@
         });
     }, false);
 })();
+
+// signup
+
+// main.js
+// main.js
+document.addEventListener('DOMContentLoaded', function () {
+    const signupForm = document.getElementById('signupForm');
+    
+    signupForm.addEventListener('submit', function (event) {
+        if (!signupForm.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            // Custom validation for phone number
+            const phoneNumberInput = document.getElementById('contactNo');
+            if (!validatePhoneNumber(phoneNumberInput.value)) {
+                event.preventDefault();
+                event.stopPropagation();
+                phoneNumberInput.classList.add('is-invalid');
+            } else {
+                phoneNumberInput.classList.remove('is-invalid');
+            }
+        }
+
+        signupForm.classList.add('was-validated');
+    }, false);
+
+    function validatePhoneNumber(phoneNumber) {
+        // Example validation for a generic international phone number pattern
+        const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+        return phoneRegex.test(phoneNumber);
+    }
+});
